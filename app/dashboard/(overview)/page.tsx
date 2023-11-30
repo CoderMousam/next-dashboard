@@ -5,8 +5,7 @@ import { lusitana } from "@/app/ui/fonts";
 //import { fetchRevenue, fetchLatestInvoices, fetchCardData } from '@/app/lib/data';
 //import {  fetchCardData } from "@/app/lib/data";
 import { Suspense } from "react";
-import { RevenueChartSkeleton } from "@/app/ui/skeletons";
-import { LatestInvoicesSkeleton , CardSkeleton} from "@/app/ui/skeletons";
+import { RevenueChartSkeleton, LatestInvoicesSkeleton , CardSkeleton} from "@/app/ui/skeletons";
 
 const RevenueChart = dynamic(() => import("../../ui/dashboard/revenue-chart"), {
     loading: () => <RevenueChartSkeleton/>, 
@@ -31,14 +30,6 @@ export default async function Page() {
         Dashboard
       </h1>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {/* <Card title="Collected" value={totalPaidInvoices} type="collected" />
-        <Card title="Pending" value={totalPendingInvoices} type="pending" />
-        <Card title="Total invoices" value={numberOfInvoices} type="invoices" />
-        <Card
-          title="Total customers"
-          value={numberOfCustomers}
-          type="customers"
-        /> */}
         <Suspense fallback={<CardSkeleton/>}>
         <RevenueCard/>
         </Suspense>
