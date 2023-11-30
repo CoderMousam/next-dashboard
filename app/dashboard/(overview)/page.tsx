@@ -1,3 +1,4 @@
+
 import dynamic from 'next/dynamic';
 // import RevenueChart from "../../ui/dashboard/revenue-chart";
 // import LatestInvoices from "../../ui/dashboard/latest-invoices";
@@ -7,6 +8,7 @@ import { lusitana } from "@/app/ui/fonts";
 import { Suspense } from "react";
 import { RevenueChartSkeleton, LatestInvoicesSkeleton , CardSkeleton} from "@/app/ui/skeletons";
 
+export const revalidate = 0;
 const RevenueChart = dynamic(() => import("../../ui/dashboard/revenue-chart"), {
     loading: () => <RevenueChartSkeleton/>, 
     ssr:false
